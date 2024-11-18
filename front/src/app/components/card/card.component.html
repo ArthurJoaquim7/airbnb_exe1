@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="cardDiv">
+        <div *ngFor="let reserva of reservas" class="card">
+            <div class="imgDiv">
+                <img *ngIf="reserva.image" [src]="reserva.image" alt="Imagem da reserva" width="100px" />
+            </div>
+            <div class="cardDesc">
+                <p>{{reserva.where}}</p>
+                <p>1.817km de distância</p>
+                <p>12 - 17 de nov.</p>
+                <p>R$ {{reserva.price}} noite</p>
+                <button (click)="deleteReserva(reserva.id)">Deletar</button>
+            </div>
+        </div>
+    </div>
+</div>

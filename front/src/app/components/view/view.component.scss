@@ -1,0 +1,143 @@
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 100px 0px;
+}
+
+.mainView {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.titleDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.titleLast {
+    display: flex;
+    gap: 20px;
+}
+
+.mainImg {
+    width: 100%;
+    height: 500px;
+    border-radius: 15px;
+}
+
+// LEFT
+.leftRightDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.host {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hostImg {
+    width: 40px;
+    height: 40px;
+}
+
+.detailImg {
+    width: 30px;
+    height: 30px;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+// RIGHT DIV
+.right {
+    padding: 20px;
+    width: 40%;
+}
+
+.infoDiv {
+    width: 330px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    gap: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.infoDiv,
+p {
+    font-size: 14px;
+}
+
+.checkDiv {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.check {
+    padding: 0px 5px;
+    width: 100%;
+    border: 1px solid gray;
+    border-left: 1px solid gray;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px 0px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    background-color: #e51d56;
+    border-radius: 5px;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+}
+
+// ========= DETALHES
+.airbnbDetailsDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btnComo {
+    width: 294px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.btnComo:hover {
+    background-color: rgba(224, 224, 224, 0.247);
+}

@@ -1,0 +1,52 @@
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 10px 80px; // PADRÃO
+}
+
+.airbnbFilterDiv {
+    width: 100%;
+    display: flex;
+    gap: 40px;
+}
+
+.airbnb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.gray {
+    border-bottom: 2px solid transparent;
+}
+
+.airbnb:hover {
+    .gray {
+        border-bottom: 2px solid black;
+        border-width: 10%;
+    }
+}
+
+.airbnb p {
+    font-size: 12px;
+}
+
+// IMAGES
+.airbnbImg {
+    width: 25px;
+}
+
+.filterImg {
+    width: 30px;
+}
+
+// FILTER DETAIL
+.filterDetail {
+    display: flex;
+    padding: 10px 15px;
+    border-radius: 15px;
+    border: 1px solid gray;
+}

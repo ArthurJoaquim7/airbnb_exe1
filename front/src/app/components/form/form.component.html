@@ -1,0 +1,14 @@
+<form [formGroup]="reservaForm" (ngSubmit)="onSubmit()">
+    <input id="title" formControlName="title" type="text">
+    <input id="where" formControlName="where" type="text">
+    <input id="price" formControlName="price" type="number">
+    <select name="category" id="category" formControlName="category">
+        <option value="cabana">Cabana</option>
+        <option value="ilhas">ilhas</option>
+        <option value="em frente à praia">Em frente à praia</option>
+        <option value="casa na árvore">Casa na árvore</option>
+        <option value="mansões">mansões</option>
+    </select>
+    <input id="image" type="file" (change)="onFileSelected($event)">
+    <button type="submit">Feito!</button>
+</form>

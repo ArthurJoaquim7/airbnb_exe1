@@ -1,0 +1,103 @@
+<div class="container" >
+
+    <div  class="mainView" *ngFor="let reserva of reservas">
+        <div class="titleDiv" >
+            <h2>{{reserva.title}}</h2>
+            <div class="titleLast">
+                <p>Compartilhar</p>
+                <p>Salvar</p>
+            </div>
+        </div>
+        <!-- MAIN IMG -->
+        <div class="imgDiv">
+            <img *ngIf="reserva.image" [src]="reserva.image" alt="Imagem da reserva" />
+        </div>
+        <!-- LEFT & RIGHT -->
+        <div class="leftRightDiv">
+            <div class="left">
+                <div class="leftTitleDiv">
+                    <h4>Quarto privativo em pousada em Cumbuco, Brasil</h4>
+                    <p>2 hóspedes, 1 quarto, 1 cama, 1 banheiro privado</p>
+                </div>
+                <hr>
+                <!-- ANFITRIÃO -->
+                <div class="host">
+                    <img src="/assets/do-utilizador.png" alt="hostImg" class="hostImg">
+                    <div class="hostDesc">
+                        <p class="black">Anfitriã(o): Arthur</p>
+                        <p class="gray">Superhost, 13 anos hospedando</p>
+                    </div>
+                </div>
+                <hr>
+                <!-- DETALHES -->
+                <div class="airbnbDetailsDiv">
+                    <h3>O que esse lugar oferece</h3>
+                    <div class="details">
+                        <img src="/assets/airbnb.png" alt="detail" class="detailImg">
+                        <p>Vista para o jardim</p>
+                    </div>
+                    <!-- === -->
+                    <div class="details">
+                        <img src="/assets/airbnb.png" alt="detail" class="detailImg">
+                        <p>Cozinha</p>
+                    </div>
+                    <!-- === -->
+                    <div class="details">
+                        <img src="/assets/airbnb.png" alt="detail" class="detailImg">
+                        <p>Wi-Fi</p>
+                    </div>
+                    <!-- === -->
+                    <div class="details">
+                        <img src="/assets/airbnb.png" alt="detail" class="detailImg">
+                        <p>TV de alta definição de 32 polegadas</p>
+                    </div>
+                    <!-- === -->
+                    <div class="details">
+                        <img src="/assets/airbnb.png" alt="detail" class="detailImg">
+                        <p>Estacionamento gratuito na rua</p>
+                    </div>
+                </div>
+                <div class="btnComo">Mostrar todas as comodidades</div>
+                <hr>
+            </div>
+            <!-- RIGHT DIV -->
+            <div class="right">
+                <div class="infoDiv">
+                    <p class="gray"><span class="black bold pTaller">R${{reserva.price}}</span> noite</p>
+                    <!-- CHECK IN/OUT DIV -->
+                    <div class="checkDiv">
+                        <div class="top">
+                            <div class="check">
+                                <p>CHECK-IN</p>
+                                <p>15/10/2024</p>
+                            </div>
+                            <div class="check">
+                                <p>CHECKOUT</p>
+                                <p>20/10/2024</p>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <div class="check">
+                                <p>HOSPEDES</p>
+                                <p>2 hóspede</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- === -->
+                    <button class="btn">Reservar</button>
+                    <p class="middle">Você ainda não será cobrado</p>
+                    <div class="total">
+                        <p class="gray">R${{reserva.price}} x 5 noites</p>
+                        <p class="black">R$ {{reserva.price * 5 }}</p>
+                    </div>
+                    <hr>
+                    <div class="total">
+                        <p class="black bold">Total sem impostos</p>
+                        <p class="black">R$ {{reserva.price}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
