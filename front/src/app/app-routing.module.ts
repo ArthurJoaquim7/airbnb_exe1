@@ -10,6 +10,12 @@ const routes: Routes = [
   { path: 'reservas/nova', component: FormComponent },
   { path: 'reservas/editar/:id', component: FormComponent },
   { path: 'view', component: ViewComponent },
+  { path: 'reservas/form', component: FormComponent },
+  // { path: 'reservas/editar/:id', component: FormComponent },
+  { path: 'reservas/view', component: ViewComponent },
+  { path: 'reservas/nova', component: FormComponent },
+  { path: 'reservas/editar/:id', component: FormComponent },
+  { path: 'view', component: ViewComponent },
   { path: '', redirectTo: '/reservas', pathMatch: 'full' }
 ];
 

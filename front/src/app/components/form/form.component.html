@@ -1,14 +1,151 @@
-<form [formGroup]="reservaForm" (ngSubmit)="onSubmit()">
-    <input id="title" formControlName="title" type="text">
-    <input id="where" formControlName="where" type="text">
-    <input id="price" formControlName="price" type="number">
-    <select name="category" id="category" formControlName="category">
-        <option value="cabana">Cabana</option>
-        <option value="ilhas">ilhas</option>
-        <option value="em frente à praia">Em frente à praia</option>
-        <option value="casa na árvore">Casa na árvore</option>
-        <option value="mansões">Mansões</option>
-    </select>
-    <input id="image" type="file" (change)="onFileSelected($event)">
-    <button type="submit">Feito!</button>
-</form>
+<div class="container">
+    <!-- <div class="categoryDiv">
+        <h2>Qual das seguintes opções descreve melhor seu espaço?</h2>
+        <div class="cardDiv">
+            <div class="card">
+                <img src="assets/cabana.png" alt="cabanaImg" class="img">
+                <p>Cabana</p>
+            </div>
+            
+            <div class="card">
+                <img src="assets/praia.png" alt="praiaImg" class="img">
+                <p>Em frente à praia</p>
+            </div>
+            
+            <div class="card">
+                <img src="assets/ilha.png" alt="ilhaImg" class="img">
+                <p>Ilhas</p>
+            </div>
+            
+            <div class="card">
+                <img src="assets/mansao.png" alt="mansaoImg" class="img">
+                <p>Mansões</p>
+            </div>
+            
+            <div class="card">
+                <img src="assets/pool.png" alt="piscinasImg" class="img">
+                <p>Piscinas</p>
+            </div>
+
+            <div class="card">
+                <img src="assets/arvore.png" alt="arvoreImg" class="img">
+                <p>Casa na árvore</p>
+            </div>
+        </div>
+    </div> -->
+    <!-- ======DETALHES DO ESPAÇO -->
+    <div class="detalhesDiv">
+        <h2>Qual das seguintes opções descreve melhor seu espaço?</h2>
+        <div class="cardDivDetalhes">
+            <div class="cardDetalhes">
+                <img src="assets/wifi.png" alt="wifiImg" class="img">
+                <p>Wi-Fi</p>
+            </div>
+            <!-- === -->
+            <div class="cardDetalhes">
+                <img src="assets/tv.png" alt="tvImg" class="img">
+                <p>TV</p>
+            </div>
+            <!-- === -->
+            <div class="cardDetalhes">
+                <img src="assets/carro.png" alt="carroImg" class="img">
+                <p>Estacionamento incluído</p>
+            </div>
+            <!-- === -->
+            <div class="cardDetalhes">
+                <img src="assets/cozinha.png" alt="cozinhaImg" class="img">
+                <p>Cozinha</p>
+            </div>
+            <!-- === -->
+            <div class="cardDetalhes">
+                <img src="assets/maquina.png" alt="maquinaImg" class="img">
+                <p>Maquina de Lavar</p>
+            </div>
+            <!-- === -->
+            <div class="cardDetalhes">
+                <img src="assets/churras.png" alt="churrasImg" class="img">
+                <p>Churrasqueira</p>
+            </div>
+            <!-- === -->
+            <div class="cardDetalhes">
+                <img src="assets/gym.png" alt="gymImg" class="img">
+                <p>Equipamento de Treino</p>
+            </div>
+        </div>
+
+        <!-- ========== FORMULÁRIO -->
+        <div class="formDiv">
+            <h2>Preencha o formulário 😀</h2>
+            <form [formGroup]="reservaForm" (ngSubmit)="onSubmit()" class="form">
+                <div class="formTop">
+                    <!-- == TÍTULO -->
+                    <div class="input-group">
+                        <input required="" id="title" type="text" name="text" autocomplete="off" formControlName="title"
+                            class="input">
+                        <label class="user-label">Título</label>
+                    </div>
+                    <!-- == LOCAL -->
+                    <div class="input-group">
+                        <input required="" id="where" type="text" name="text" autocomplete="off" formControlName="where"
+                            class="input">
+                        <label class="user-label">Local</label>
+                    </div>
+                </div>
+                <!-- === -->
+                <div class="formMiddle">
+                    <!-- == CATEGORIA -->
+                    <div class="input-group">
+                        <label class="user-label">Categoria</label>
+                        <select name="category" id="category" name="text" formControlName="category" type="text"
+                            class="input" aria-placeholder="Categoria" required>
+                            <option value="Cabana">Cabana</option>
+                            <option value="Em frente à praia">Em frente à praia</option>
+                            <option value="Ilhas">Ilhas</option>
+                            <option value="Mansões">Mansões</option>
+                            <option value="Piscinas">Piscinas</option>
+                            <option value="Casa na árvore">Casa na árvore</option>
+                        </select>
+                    </div>
+
+                    <!-- =========== CHECKBOX -->
+
+                    <!-- <div class="checkbox-wrapper-16" formControlName="category">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" class="checkbox-input" />
+                            <span class="checkbox-tile">
+                                <span class="checkbox-icon">
+                                    <img src="assets/arvore.png" alt="arvoreImg" class="img">
+                                </span>
+                                <span class="checkbox-label">Arvore</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" class="checkbox-input" />
+                            <span class="checkbox-tile">
+                                <span class="checkbox-icon">
+                                    <img src="assets/praia.png" alt="arvoreImg" class="img">
+                                </span>
+                                <span class="checkbox-label" formControlName="category">Em frente à praia</span>
+                            </span>
+                        </label>
+                    </div> -->
+
+                    <!-- ============= -->
+
+                    <!-- == PREÇO -->
+                    <div class="input-group">
+                        <input required="" id="price" type="number" name="text" autocomplete="off"
+                            formControlName="price" class="input">
+                        <label class="user-label">Preço</label>
+                    </div>
+                </div>
+                <!-- == UPLOAD -->
+                <div class="formBottom">
+                    <label for="arquivo" class="labelArquivo">Enviar imagem</label>
+                    <input id="arquivo" name="arquivo" type="file" (change)="onFileSelected($event)">
+                    <button type="submit" class="btn">Pronto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
