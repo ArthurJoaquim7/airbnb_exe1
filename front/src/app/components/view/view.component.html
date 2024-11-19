@@ -1,7 +1,7 @@
-<div class="container" >
+<div class="container">
 
-    <div  class="mainView" *ngFor="let reserva of reservas">
-        <div class="titleDiv" >
+    <div class="mainView" *ngIf="reserva">
+        <div class="titleDiv">
             <h2>{{reserva.title}}</h2>
             <div class="titleLast">
                 <p>Compartilhar</p>

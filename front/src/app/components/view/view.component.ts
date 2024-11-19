@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ReservaService } from 'src/app/services/reserva.service';
 @Component({
   selector: 'app-view',
@@ -8,13 +9,18 @@ import { ReservaService } from 'src/app/services/reserva.service';
 export class ViewComponent implements OnInit {
 
   reservas: any[] = [];
+  reserva: any;
 
-  constructor(private reservaService: ReservaService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private reservaService: ReservaService
+  ) { }
 
   ngOnInit(): void {
-      this.reservaService.getAll().subscribe((data) => {
-          this.reservas = data;
-      });
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.reservaService.getById(id).subscribe((data) => {
+      console.log(data);
+      this.reserva = data;
+    });
   }
-
 }

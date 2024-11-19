@@ -1,5 +1,5 @@
+<app-header></app-header>
 <div class="container">
-    <app-header></app-header>
     <div class="cardDiv">
         <div *ngFor="let reserva of reservas" class="card">
             <div class="imgDiv">
@@ -13,7 +13,9 @@
                 <p>R$ {{reserva.price}} noite</p>
             </div>
             <button (click)="deleteReserva(reserva.id)">Deletar</button>
+            <button [routerLink]="['/reservas/view/', reserva.id]">Ver Detalhes</button>
         </div>
     </div>
-    <app-footer></app-footer>
 </div>
+
+<app-footer></app-footer>
