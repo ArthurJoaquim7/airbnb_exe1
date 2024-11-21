@@ -22,5 +22,7 @@ export class ViewComponent implements OnInit {
       console.log(data);
       this.reserva = data;
     });
+
+
   }
 }

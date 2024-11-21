@@ -16,6 +16,7 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
     this.reservaService.getAll().subscribe((data) => {
       this.reservas = data;
+      console.log(data);
     });
   }
 

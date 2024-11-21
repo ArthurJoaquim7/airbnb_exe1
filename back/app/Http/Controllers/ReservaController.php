@@ -12,7 +12,6 @@ class ReservaController extends Controller
         $reservas = Reserva::all();
 
         foreach ($reservas as $reserva) {
-            // Constrói o caminho completo para cada imagem
             $reserva->image = url('storage/' . $reserva->image);
         }
         return response()->json($reservas);
@@ -38,7 +37,7 @@ class ReservaController extends Controller
     public function show($id)
     {
         $reserva = Reserva::findOrFail($id);
-        $reserva->image = url('uploads/' . $reserva->image); // Ajuste o caminho conforme necessário
+        $reserva->image = url('storage/' . $reserva->image);
         return response()->json($reserva);
     }
 
