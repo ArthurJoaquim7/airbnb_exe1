@@ -8,7 +8,7 @@ const routes: Routes = [
 
   { path: 'reservas', component: CardComponent },
   { path: 'reservas/form', component: FormComponent },
-  // { path: 'reservas/editar/:id', component: FormComponent },
+  { path: 'reservas/form/:id', component: FormComponent },
   { path: 'reservas/view/:id', component: ViewComponent },
   // { path: 'view', component: ViewComponent },
   { path: '', redirectTo: '/reservas', pathMatch: 'full' }

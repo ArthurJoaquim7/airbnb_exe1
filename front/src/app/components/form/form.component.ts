@@ -56,7 +56,7 @@ export class FormComponent implements OnInit {
         const formData = new FormData();
         formData.append('title', this.reservaForm.get('title')?.value);
         formData.append('where', this.reservaForm.get('where')?.value);
-        formData.append('price', this.reservaForm.get('price')?.value);
+        formData.append('price', this.reservaForm.get('price')?.value.toString());
         formData.append('category', this.reservaForm.get('category')?.value);
 
         if (this.selectedFile) {
@@ -66,6 +66,7 @@ export class FormComponent implements OnInit {
         if (this.editMode && this.reservaId !== null) {
             this.reservaService.update(this.reservaId, formData).subscribe(() => {
                 alert("Atualizado com sucesso!");
+
                 // == RESETAR APÓS SUBMIT
                 this.reservaForm = this.fb.group({
                     title: ['', Validators.required],
@@ -74,10 +75,14 @@ export class FormComponent implements OnInit {
                     category: ['', Validators.required],
                     image: [null]
                 });
+                this.router.navigate(['/reservas']);
+
             });
+
         } else {
             this.reservaService.create(formData).subscribe(() => {
                 alert("Criado com sucesso!");
+
                 // == RESETAR APÓS SUBMIT
                 this.reservaForm = this.fb.group({
                     title: ['', Validators.required],
@@ -86,8 +91,9 @@ export class FormComponent implements OnInit {
                     category: ['', Validators.required],
                     image: [null]
                 });
+                this.router.navigate(['/reservas']);
+
             });
         }
     }
-
 }

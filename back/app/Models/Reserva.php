@@ -10,3 +10,4 @@ class Reserva extends Model
     use HasFactory;
     protected $fillable = ['title', 'where', 'price', 'category', 'image'];
 }
+

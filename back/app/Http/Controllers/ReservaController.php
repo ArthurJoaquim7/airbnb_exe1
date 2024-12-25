@@ -7,15 +7,27 @@ use Illuminate\Support\Facades\Storage;
 
 class ReservaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $reservas = Reserva::all();
-
+        $query = Reserva::query();
+    
+        // Verifica se a categoria foi passada como parâmetro
+        if ($request->has('category')) {
+            $query->where('category', $request->input('category'));
+        } else {
+            $reservas = Reserva::all();
+        }
+    
+        $reservas = $query->get();
+    
+        // Adiciona o caminho completo da imagem
         foreach ($reservas as $reserva) {
             $reserva->image = url('storage/' . $reserva->image);
         }
+    
         return response()->json($reservas);
     }
+    
 
     public function store(Request $request)
     {
@@ -73,4 +85,6 @@ class ReservaController extends Controller
 
         return response()->json(['message' => 'Reserva deletada com sucesso']);
     }
+
+    
 }
