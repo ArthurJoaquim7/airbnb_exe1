@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Reserva;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -10,33 +11,42 @@ class ReservaController extends Controller
     public function index(Request $request)
     {
         $query = Reserva::query();
-    
-        // Verifica se a categoria foi passada como parâmetro
+
         if ($request->has('category')) {
             $query->where('category', $request->input('category'));
-        } else {
-            $reservas = Reserva::all();
         }
-    
+
         $reservas = $query->get();
-    
-        // Adiciona o caminho completo da imagem
+
+        // Adiciona o caminho completo da imagem e evita erro no features
         foreach ($reservas as $reserva) {
             $reserva->image = url('storage/' . $reserva->image);
+            $reserva->features = $reserva->features ?? [];
         }
-    
+
         return response()->json($reservas);
     }
-    
+
 
     public function store(Request $request)
     {
+        \Log::info('Dados recebidos:', $request->all());
+
+        // Decodificar o JSON manualmente antes da validação, se necessário
+        if ($request->has('features') && is_string($request->features)) {
+            $request->merge([
+                'features' => json_decode($request->features, true)
+            ]);
+        }
+
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'where' => 'required|string|max:255',
             'price' => 'required|numeric',
             'category' => 'required|string|max:255',
-            'image' => 'nullable|image|max:2048'
+            'image' => 'nullable|image|max:2048',
+            'features' => 'nullable|array',
+            'features.*' => 'string'
         ]);
 
         if ($request->hasFile('image')) {
@@ -45,6 +55,7 @@ class ReservaController extends Controller
 
         return Reserva::create($data);
     }
+
 
     public function show($id)
     {
@@ -61,7 +72,9 @@ class ReservaController extends Controller
             'where' => 'required|string|max:255',
             'price' => 'required|numeric',
             'category' => 'required|string|max:255',
-            'image' => 'nullable|image|max:2048'
+            'image' => 'nullable|image|max:2048',
+            'features' => 'nullable|array',
+            'features.*' => 'string'
         ]);
 
         if ($request->hasFile('image')) {
@@ -85,6 +98,4 @@ class ReservaController extends Controller
 
         return response()->json(['message' => 'Reserva deletada com sucesso']);
     }
-
-    
 }
