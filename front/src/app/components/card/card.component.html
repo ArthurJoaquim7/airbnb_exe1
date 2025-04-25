@@ -16,33 +16,17 @@
   <button (click)="getAllFunc()">GetAll</button>
 
   <div class="cardDiv">
-    <div *ngFor="let reserva of reservas" class="card">
-      <div class="imgDiv">
-        <img
-          *ngIf="reserva.image"
-          [src]="reserva.image"
-          alt="Imagem da reserva"
-          class="cardImg"
-        />
-      </div>
-      <div class="cardDesc">
-        <p>{{ reserva.where }}</p>
-        <p>{{ reserva.category }}</p>
-        <p>1.817km de distância</p>
-        <p>12 - 17 de nov.</p>
-        <p>R$ {{ reserva.price }} noite</p>
-        <div *ngIf="reserva.features?.length">
-          <h3>Detalhes</h3>
-          <ul>
-            <li *ngFor="let feature of reserva.features">{{ feature }}</li>
-          </ul>
-        </div>
-      </div>
+    <div *ngFor="let reserva of reservas">
+      <h3>{{ reserva.title }}</h3>
+      <p>{{ reserva.where }} - R$ {{ reserva.price }}</p>
+      <img *ngIf="reserva.image" [src]="reserva.image" width="200" />
+
+      <!-- Mostrando os features -->
+      <ul *ngIf="reserva.features && reserva.features.length > 0">
+        <li *ngFor="let feature of reserva.features">{{ feature }}</li>
+      </ul>
+
       <button (click)="deleteReserva(reserva.id)">Deletar</button>
-      <button [routerLink]="['/reservas/view/', reserva.id]">
-        Ver Detalhes
-      </button>
-      <button [routerLink]="['/reservas/form/', reserva.id]">Editar</button>
     </div>
   </div>
 </div>

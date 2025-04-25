@@ -21,7 +21,9 @@ class ReservaController extends Controller
         // Adiciona o caminho completo da imagem e evita erro no features
         foreach ($reservas as $reserva) {
             $reserva->image = url('storage/' . $reserva->image);
-            $reserva->features = $reserva->features ?? [];
+            $reserva->features = is_string($reserva->features)
+                ? json_decode($reserva->features, true)
+                : ($reserva->features ?? []);
         }
 
         return response()->json($reservas);
@@ -60,6 +62,7 @@ class ReservaController extends Controller
     public function show($id)
     {
         $reserva = Reserva::findOrFail($id);
+        $reserva->features = json_decode($reserva->features ?? '[]');
         $reserva->image = url('storage/' . $reserva->image);
         return response()->json($reserva);
     }

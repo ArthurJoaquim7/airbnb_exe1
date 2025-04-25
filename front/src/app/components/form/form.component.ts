@@ -108,6 +108,7 @@ export class FormComponent implements OnInit {
           price: [0, [Validators.required, Validators.min(0)]],
           category: ['', Validators.required],
           image: [null],
+          features: [[]],
         });
         this.router.navigate(['/reservas']);
       });
