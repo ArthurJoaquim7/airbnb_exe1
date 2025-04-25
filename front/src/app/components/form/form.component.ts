@@ -17,8 +17,8 @@ export class FormComponent implements OnInit {
   reservaId: number | null = null;
 
   // Alocando os arrays dos detalhes
-  featureList: string[] = [];
-  selectedFeatures: string[] = [];
+  featureList: { name: string; image: string }[] = [];
+  selectedFeatures: { name: string; image: string }[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -60,15 +60,21 @@ export class FormComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
 
-  // EXECUÇÃO DO SELECT NO DETAIL
-  toggleFeature(feature: string) {
-    const atual = this.selectedFeatures;
-    if (atual.includes(feature)) {
-      this.selectedFeatures = atual.filter((f) => f !== feature);
+  // EXECUÇÃO DO SELECT NO DETAIL + IMAGE
+  toggleFeature(feature: { name: string; image: string }) {
+    const exists = this.selectedFeatures.find((f) => f.name === feature.name);
+    if (exists) {
+      this.selectedFeatures = this.selectedFeatures.filter(
+        (f) => f.name !== feature.name
+      );
     } else {
       this.selectedFeatures.push(feature);
     }
     this.reservaForm.patchValue({ features: this.selectedFeatures });
+  }
+
+  isFeatureSelected(feature: { name: string; image: string }): boolean {
+    return this.selectedFeatures.some((f) => f.name === feature.name);
   }
 
   onSubmit(): void {
@@ -94,6 +100,8 @@ export class FormComponent implements OnInit {
           price: [0, [Validators.required, Validators.min(0)]],
           category: ['', Validators.required],
           image: [null],
+          features: [[]],
+          
         });
         this.router.navigate(['/reservas']);
       });

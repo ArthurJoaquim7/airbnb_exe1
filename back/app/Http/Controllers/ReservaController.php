@@ -48,12 +48,15 @@ class ReservaController extends Controller
             'category' => 'required|string|max:255',
             'image' => 'nullable|image|max:2048',
             'features' => 'nullable|array',
-            'features.*' => 'string'
+            'features.*.name' => 'required|string',
+            'features.*.image' => 'required|string',
         ]);
 
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('images', 'public');
         }
+
+        $data['features'] = json_encode($data['features'] ?? []);
 
         return Reserva::create($data);
     }
@@ -70,6 +73,13 @@ class ReservaController extends Controller
     public function update(Request $request, $id)
     {
         $reserva = Reserva::findOrFail($id);
+
+        if ($request->has('features') && is_string($request->features)) {
+            $request->merge([
+                'features' => json_decode($request->features, true)
+            ]);
+        }
+
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'where' => 'required|string|max:255',
@@ -77,7 +87,8 @@ class ReservaController extends Controller
             'category' => 'required|string|max:255',
             'image' => 'nullable|image|max:2048',
             'features' => 'nullable|array',
-            'features.*' => 'string'
+            'features.*.name' => 'required|string',
+            'features.*.image' => 'required|string',
         ]);
 
         if ($request->hasFile('image')) {
@@ -86,6 +97,8 @@ class ReservaController extends Controller
             }
             $data['image'] = $request->file('image')->store('images', 'public');
         }
+
+        $data['features'] = json_encode($data['features'] ?? []);
 
         $reserva->update($data);
         return $reserva;

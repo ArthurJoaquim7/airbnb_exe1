@@ -23,7 +23,14 @@
 
       <!-- Mostrando os features -->
       <ul *ngIf="reserva.features && reserva.features.length > 0">
-        <li *ngFor="let feature of reserva.features">{{ feature }}</li>
+        <li *ngFor="let feature of reserva.features">
+          <img
+            [src]="'/assets/features/' + feature.image"
+            alt="{{ feature.name }}"
+            width="32"
+          />
+          {{ feature.name }}
+        </li>
       </ul>
 
       <button (click)="deleteReserva(reserva.id)">Deletar</button>

@@ -41,11 +41,11 @@
         <label>
           <input
             type="checkbox"
-            [checked]="selectedFeatures.includes(feature)"
+            [checked]="isFeatureSelected(feature)"
             (change)="toggleFeature(feature)"
           />
-
-          {{ feature }}
+          <img [src]="'assets/features/' + feature.image" width="20" />
+          {{ feature.name }}
         </label>
       </div>
 

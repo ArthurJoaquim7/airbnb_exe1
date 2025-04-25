@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class detailsService {
-  private features: string[] = ['Wi-fi', 'Cozinha', 'TV', 'Estacionamento incluído', 'Churrasqueira', 'Equipamento de Treino', 'Maquina de Lavar'];
 
+  private features: { name: string; image: string }[] = [
+    { name: 'Wi-Fi', image: 'wifi.png' },
+    { name: 'Churrasqueira', image: 'churras.png' },
+    { name: 'TV', image: 'tv.png' },
+  ];
+  
   constructor() {}
 
-  getFeatures(): string[] {
+  getFeatures(): { name: string; image: string }[] {
     return this.features;
   }
 }
