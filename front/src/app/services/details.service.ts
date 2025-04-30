@@ -9,6 +9,11 @@ export class detailsService {
     { name: 'Wi-Fi', image: 'wifi.png' },
     { name: 'Churrasqueira', image: 'churras.png' },
     { name: 'TV', image: 'tv.png' },
+    { name: 'Ar-Condicionado', image: 'ar.png' },
+    { name: 'Estacionamento incluso', image: 'carro.png' },
+    { name: 'Equipamento de treino', image: 'gym.png' },
+    { name: 'Cozinha', image: 'cozinha.png' },
+    { name: 'Máquina de lavar', image: 'maquina.png' },
   ];
   
   constructor() {}
