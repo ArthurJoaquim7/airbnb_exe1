@@ -6,6 +6,7 @@ interface Reserva {
     id?: number;
     title: string;
     where: string;
+    country: string;
     price: number;
     category: string;
     image?: File | string;

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reserva extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'where', 'price', 'category', 'image', 'features'];
+    protected $fillable = ['title', 'where', 'country', 'price', 'category', 'image', 'features'];
     protected $casts = [
         'features' => 'array',
     ];

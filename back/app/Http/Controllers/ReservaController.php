@@ -44,6 +44,7 @@ class ReservaController extends Controller
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'where' => 'required|string|max:255',
+            'country' => 'required|string|max:255',
             'price' => 'required|numeric',
             'category' => 'required|string|max:255',
             'image' => 'nullable|image|max:2048',
@@ -83,6 +84,7 @@ class ReservaController extends Controller
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'where' => 'required|string|max:255',
+            'country' => 'required|string|max:255',
             'price' => 'required|numeric',
             'category' => 'required|string|max:255',
             'image' => 'nullable|image|max:2048',

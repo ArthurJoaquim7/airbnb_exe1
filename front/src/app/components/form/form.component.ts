@@ -31,6 +31,7 @@ export class FormComponent implements OnInit {
     this.reservaForm = this.fb.group({
       title: ['', Validators.required],
       where: ['', Validators.required],
+      country: ['', Validators.required],
       price: [0, [Validators.required, Validators.min(0)]],
       category: ['', Validators.required],
       image: [null],
@@ -48,6 +49,7 @@ export class FormComponent implements OnInit {
           this.reservaForm.patchValue({
             title: reserva.title,
             where: reserva.where,
+            country: reserva.country,
             price: reserva.price,
             category: reserva.category,
           });
@@ -81,6 +83,7 @@ export class FormComponent implements OnInit {
     const formData = new FormData();
     formData.append('title', this.reservaForm.get('title')?.value);
     formData.append('where', this.reservaForm.get('where')?.value);
+    formData.append('country', this.reservaForm.get('country')?.value);
     formData.append('price', this.reservaForm.get('price')?.value.toString());
     formData.append('category', this.reservaForm.get('category')?.value);
     formData.append('features', JSON.stringify(this.selectedFeatures));
@@ -97,6 +100,7 @@ export class FormComponent implements OnInit {
         this.reservaForm = this.fb.group({
           title: ['', Validators.required],
           where: ['', Validators.required],
+          country: ['', Validators.required],
           price: [0, [Validators.required, Validators.min(0)]],
           category: ['', Validators.required],
           image: [null],
@@ -113,6 +117,7 @@ export class FormComponent implements OnInit {
         this.reservaForm = this.fb.group({
           title: ['', Validators.required],
           where: ['', Validators.required],
+          country: ['', Validators.required],
           price: [0, [Validators.required, Validators.min(0)]],
           category: ['', Validators.required],
           image: [null],
