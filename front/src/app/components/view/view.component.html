@@ -40,8 +40,12 @@
         >
           <h3>O que esse lugar oferece</h3>
           <div class="details" *ngFor="let feature of reserva.features">
-            <img [src]="'/assets/features/' + feature.image" alt="{{feature.name}}" class="detailImg" />
-            <p>{{feature.name}}</p>
+            <img
+              [src]="'/assets/features/' + feature.image"
+              alt="{{ feature.name }}"
+              class="detailImg"
+            />
+            <p>{{ feature.name }}</p>
           </div>
         </div>
         <div class="btnComo">Mostrar todas as comodidades</div>
@@ -51,8 +55,12 @@
       <div class="right">
         <div class="infoDiv">
           <p class="gray">
-            <span class="black bold pTaller">R${{ reserva.price }}</span> noite
+            <span class="black bold pTaller">{{
+              reserva.price | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR"
+            }}</span>
+            noite
           </p>
+
           <!-- CHECK IN/OUT DIV -->
           <div class="checkDiv">
             <div class="top">
@@ -76,13 +84,27 @@
           <button class="btn">Reservar</button>
           <p class="middle">Você ainda não será cobrado</p>
           <div class="total">
-            <p class="gray">R${{ reserva.price }} x 5 noites</p>
-            <p class="black">R$ {{ reserva.price * 5 }}</p>
+            <p class="gray">
+              {{
+                reserva.price | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR"
+              }}
+              x 5 noites
+            </p>
+            <p class="black">
+              {{
+                reserva.price * 5
+                  | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR"
+              }}
+            </p>
           </div>
           <hr />
           <div class="total">
             <p class="black bold">Total sem impostos</p>
-            <p class="black">R$ {{ reserva.price }}</p>
+            <p class="black">
+              {{
+                reserva.price | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR"
+              }}
+            </p>
           </div>
         </div>
       </div>

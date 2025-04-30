@@ -26,7 +26,9 @@
         <p>{{ reserva.category }}</p>
         <p>1.817km de distância</p>
         <p>12 - 17 de nov.</p>
-        <p>R$ {{ reserva.price }} noite</p>
+        <p>
+          {{ reserva.price | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR" }}
+        </p>
       </div>
       <button (click)="deleteReserva(reserva.id)">Deletar</button>
       <button [routerLink]="['/reservas/view/', reserva.id]">
