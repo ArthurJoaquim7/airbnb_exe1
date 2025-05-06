@@ -31,5 +31,5 @@ Projeto de clonagem da plataforma Airbnb, com objetivo de aprendizado e desenvol
 A maior parte das funcionalidades principais já está pronta, restando ajustes finais, testes e refinamentos visuais.
 
 🙈 Palinha: 
-![Cards Reserva](file:///C:/Users/arthu/OneDrive/%C3%81rea%20de%20Trabalho/air1.png)
+![Cards Reserva](http://localhost:8000/storage/images/hbqcG0ecWmbK7Jdi7jtGHfDTJ8PF1QQE5pc1FqXE.jpg)
 
