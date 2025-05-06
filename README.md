@@ -14,6 +14,9 @@ Projeto de clonagem da plataforma Airbnb, com objetivo de aprendizado e desenvol
 ✅ Funcionalidades Implementadas (até agora):
 📝 Cadastro e exibição de reservas
 
+🙈 Palinha: 
+![Cards Reserva](https://github.com/user-attachments/assets/f0acf06d-3bdd-4da2-928d-65471fece052)
+
 🔗 Integração completa entre Angular e API Laravel
 
 🖼️ Upload e exibição de imagens com roteamento funcional
@@ -30,6 +33,7 @@ Projeto de clonagem da plataforma Airbnb, com objetivo de aprendizado e desenvol
 📊 O projeto está 80% concluído.
 A maior parte das funcionalidades principais já está pronta, restando ajustes finais, testes e refinamentos visuais.
 
-🙈 Palinha: 
-![Cards Reserva](https://github.com/user-attachments/assets/f0acf06d-3bdd-4da2-928d-65471fece052)
+🙈 Palinha2: 
+![Show by ID](https://github.com/user-attachments/assets/3cfadf08-24c8-4035-ac77-e7a5d75ed810)
+
 
