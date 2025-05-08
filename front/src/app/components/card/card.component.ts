@@ -1,61 +1,51 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservaService } from '../../services/reserva.service';
-import { Data } from '@angular/router';
-import { Subscriber } from 'rxjs';
-// import { ActivatedRoute } from '@angular/router';
+import { FilterService } from '../../services/filter.service'; // importe o novo serviço
+
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-
   reservas: any[] = [];
-
   selectedCategory: string = '';
+
   constructor(
-    private reservaService: ReservaService
-  ) { }
+    private reservaService: ReservaService,
+    private filterService: FilterService // APLICANDO O SERVIÇO
+  ) {}
 
   ngOnInit(): void {
-    // VALIDAÇÃO DO loadReservas
-    this.loadReservas();
+    this.getAllFunc();
 
-    // CHAMANDO TODAS AS RESERVAS
-    this.reservaService.getAll().subscribe((data) => {
-      this.reservas = data;
-      console.log(data);
+    // Escuta a mudança de categoria vinda do FilterComponent
+    this.filterService.selectedCategory$.subscribe((category) => {
+      this.selectedCategory = category;
+      if (category) {
+        this.loadReservas();
+      } else {
+        this.getAllFunc();
+      }
     });
   }
 
-  // CHAMA TODOS
-  getAllFunc(): void {
-    this.reservaService.getAll().subscribe((data) => {
-      this.reservas = data;
-      console.log(data);
-    });
-  }
-
-  // PEGA AS RESERVAS PELA CATEGORIA
   loadReservas(): void {
     this.reservaService.getReservasByCategory(this.selectedCategory).subscribe(
-      (data) => {
-        this.reservas = data;
-      },
-      (error) => {
-        console.error('Erro ao carregar reservas', error);
-      }
+      (data) => (this.reservas = data),
+      (error) => console.error('Erro ao carregar reservas', error)
     );
   }
 
-  // Atualizar reservas ao mudar a categoria
-  onCategoryChange(): void {
-    this.loadReservas();
+  getAllFunc(): void {
+    this.reservaService.getAll().subscribe((data) => {
+      this.reservas = data;
+    });
   }
 
   deleteReserva(id: number): void {
     this.reservaService.delete(id).subscribe(() => {
-      this.reservas = this.reservas.filter(reserva => reserva.id !== id);
+      this.reservas = this.reservas.filter((reserva) => reserva.id !== id);
     });
   }
 }

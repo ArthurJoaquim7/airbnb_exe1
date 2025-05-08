@@ -1,20 +1,5 @@
 <app-header></app-header>
 <div class="container">
-  <p>FILTER</p>
-  <select
-    id="category"
-    [(ngModel)]="selectedCategory"
-    (change)="onCategoryChange()"
-  >
-    <option value="Cabana">Cabana</option>
-    <option value="Em frente à praia">Em frente à praia</option>
-    <option value="Ilhas">Ilhas</option>
-    <option value="Mansões">Mansões</option>
-    <option value="Piscinas">Piscinas</option>
-    <option value="Casa na árvore">Casa na árvore</option>
-  </select>
-  <button (click)="getAllFunc()">GetAll</button>
-
   <div class="cardDiv">
     <div *ngFor="let reserva of reservas">
       <div class="imgDiv">
